@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function Personal({ onNextStep }) {
+export default function Personal() {
 
     let [formData, setFormData] = useState({
         fullname: "",
@@ -35,7 +35,7 @@ export default function Personal({ onNextStep }) {
 
     let handleSubmit = (e) => {
         e.preventDefault();
-        onNextStep();
+        // onNextStep();
     };
 
     return (<>

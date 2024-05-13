@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function Account({ onNextStep }) {
+export default function Account() {
 
     let [formData, setFormData] = useState({
         email: "",
@@ -35,7 +35,7 @@ export default function Account({ onNextStep }) {
 
     let handleSubmit = (e) => {
         e.preventDefault();
-        onNextStep();
+        // onNextStep();
     };
 
     return (<>
