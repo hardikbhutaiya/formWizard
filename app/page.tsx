@@ -7,16 +7,15 @@ import Finish from "./finish";
 import { useState } from "react";
 export default function SignForm() {
 
-  // let [currentStep, setCurrentStep] = useState("account")
-  // let [thisstep, setThisStep] = useState("personal")
+  let [currentStep, setCurrentStep] = useState(1)
 
-  // let goToNextStep = () => {
-  //   setCurrentStep("personal");
-  // };
+  let goToNextStep = () => {
+    setCurrentStep(currentStep + 1);
+  };
 
-  // let clickNextStep = () => {
-  //   setThisStep("payment")
-  // }
+  let goToPreviousStep = () => {
+    setCurrentStep(currentStep - 1);
+  };
 
   let bodyColor = {
     background: "linear-gradient(135deg, #FFF5C3 0%, #9452A5 100%)",
@@ -30,15 +29,16 @@ export default function SignForm() {
   return (
     <>
       <div className='' style={bodyColor}>
-        <Account />
+        {/* <Account /> */}
         {/* <Personal />
-        <Payment />
+        {/* <Payment />
         <Finish /> */}
-      </div>
-      <div>  
-        {/* {currentStep === "account" && <Account onNextStep={goToNextStep} />}
-        {currentStep === "personal" && <Personal onNextStep={goToNextStep} />}
-        {thisstep === "payment" && <Payment NextStep={clickNextStep} />} */}
+
+        {currentStep === 1 && <Account onNextStep={goToNextStep} />}
+        {currentStep === 2 && <Personal onNextStep={goToNextStep} onPreviousStep={goToPreviousStep} />}
+        {currentStep === 3 && <Payment onNextStep={goToNextStep} onPreviousStep={goToPreviousStep} />}
+        {/* {currentStep === 4 && <Finish onPreviousStep={goToPreviousStep} />} */}
+
       </div>
     </>
   );

@@ -2,52 +2,50 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function Personal() {
+export default function Personal({onNextStep, onPreviousStep}) {
 
-    let [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
         fullname: "",
         email: "",
         contactnumber: "",
         selectgender: ""
     });
 
-    let customStyle = {
-        backgroundColor: "blue",
-        height: "2px",
+    const customStyle = {
+        height: "3px",
         width: "65%",
-        borderRadius: "1px",
         margin: "auto",
     };
 
-    let logo = {
+    const logo = {
         width: "15px",
         height: "20px"
-    }
+    };
 
-    let logoBg = {
+    const logoBg = {
         width: "50px",
         height: "50px",
         backgroundColor: "#EDF5FF",
-    }
+    };
 
-    let aclg = {
+    const aclg = {
         width: "15px",
         height: "20px"
-    }
+    };
 
-    let activeLogo = {
+    const activeLogo = {
         width: "50px",
         height: "50px",
         backgroundColor: "#2F73F2",
-    }
+    };
 
-    let height = {
+    const height = {
         width: "100%",
         margin: "auto",
         maxWidth: "1080px"
     };
 
-    let handleChange = (e) => {
+    const handleChange = (e) => {
         let { name, value } = e.target
         setFormData(prevState => ({
             ...prevState,
@@ -55,18 +53,26 @@ export default function Personal() {
         }));
     };
 
-    let handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        // onNextStep();
+        onNextStep();
+    };
+
+    const handlePrevious = () => {
+        onPreviousStep();
+    };
+
+    const p = {
+        color: "#547593"
     };
 
     return (<>
-        <div className="">
-            <div className="card mt-5 p-5" style={height}>
+        <div className="" style={height}>
+            <div className="card mt-5 p-5 rounded-4">
                 <div className="col-12">
                     <div className="row text-center">
                         <h2>Sign Up Your User Account</h2>
-                        <p>Fill all form field to go to next step</p>
+                        <p style={p}>Fill all form field to go to next step</p>
                     </div>
                     <div className="d-flex justify-content-between mt-3">
                         <div className="d-flex flex-column justify-content-center align-items-center">
@@ -100,7 +106,7 @@ export default function Personal() {
                                 </div>
                             </div>
                             <p className="mt-2 mb-1">Personal</p>
-                            <div style={customStyle}></div>
+                            <div className="bg-primary" style={customStyle}></div>
                         </div>
                         <div className="d-flex flex-column justify-content-center align-items-center">
                             <div className="p-3 rounded-circle" style={logoBg}>
@@ -136,7 +142,7 @@ export default function Personal() {
                         </div>
                     </div>
                     <div className="mt-3">
-                        <h2>Personal Information</h2>
+                        <h4>Personal Information</h4>
                         <div className="col-12 mt-3">
                             <form className="d-flex flex-column gap-4" onSubmit={handleSubmit}>
                                 <div>
@@ -167,7 +173,7 @@ export default function Personal() {
                                 </div>
                             </form>
                             <div className="d-flex justify-content-between mt-4">
-                                <button className="btn btn-light">Previous Step</button>
+                                <button className="btn btn-light" onClick={handlePrevious}>Previous Step</button>
                                 <button className="btn btn-primary" onClick={handleSubmit}>Next Step</button>
                             </div>
                         </div>

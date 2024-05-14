@@ -2,50 +2,49 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function Account({}) {
+export default function Account({onNextStep}) {
 
-    let [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
         email: "",
         username: "",
         password: "",
         confirmPassword: ""
     });
 
-    let customStyle = {
-        // backgroundColor: "blue",
+    const customStyle = {
         height: "3px",
         width: "65%",
         margin: "auto",
     };
 
-    let logo = {
+    const logo = {
         width: "15px",
         height: "20px"
     }
 
-    let logoBg = {
+    const logoBg = {
         width: "50px",
         height: "50px",
         backgroundColor: "#EDF5FF",
     }
 
-    let aclg = {
+    const aclg = {
         width: "15px",
         height: "20px"
     }
 
-    let activeLogo = {
+    const activeLogo = {
         width: "50px",
         height: "50px",
         backgroundColor: "#2F73F2",
     }
 
-    let height = {
+    const height = {
         width: "100%",
         maxWidth: "1080px"
     }
 
-    let handleChange = (e) => {
+    const handleChange = (e) => {
         let { name, value } = e.target
         setFormData(prevState => ({
             ...prevState,
@@ -53,18 +52,22 @@ export default function Account({}) {
         }));
     };
 
-    let handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        // onNextStep();
+        onNextStep();
+    };
+
+    const p = {
+        color: "#547593"
     };
 
     return (<>
         <div className="" style={height}>
-            <div className="card p-5">
-                <div className="col-12">
+            <div className="card p-5 rounded-4">
+                <div className="">
                     <div className="row text-center">
                         <h2>Sign Up Your User Account</h2>
-                        <p>Fill all form field to go to next step</p>
+                        <p className="" style={p}>Fill all form field to go to next step</p>
                     </div>
                     <div className="d-flex justify-content-between mt-3">
                         <div className="d-flex flex-column justify-content-center align-items-center">
@@ -134,7 +137,7 @@ export default function Account({}) {
                         </div>
                     </div>
                     <div className="mt-3">
-                        <h2>Account Information</h2>
+                        <h4>Account Information</h4>
                         <div className="col-12 mt-3">
                             <form className="d-flex flex-column gap-4" onSubmit={handleSubmit}>
                                 <div>
@@ -151,7 +154,7 @@ export default function Account({}) {
                                 </div>
                             </form>
                             <div className="d-flex justify-content-center mt-4">
-                                <button className="btn btn-primary" onClick={handleSubmit}>Next Step</button>
+                                <button className="btn btn-primary" onClick={handleSubmit} >Next Step</button>
                             </div>
                         </div>
                     </div>
