@@ -19,6 +19,28 @@ export default function Personal() {
         margin: "auto",
     };
 
+    let logo = {
+        width: "15px",
+        height: "20px"
+    }
+
+    let logoBg = {
+        width: "50px",
+        height: "50px",
+        backgroundColor: "#EDF5FF",
+    }
+
+    let aclg = {
+        width: "15px",
+        height: "20px"
+    }
+
+    let activeLogo = {
+        width: "50px",
+        height: "50px",
+        backgroundColor: "#2F73F2",
+    }
+
     let height = {
         width: "100%",
         margin: "auto",
@@ -39,7 +61,7 @@ export default function Personal() {
     };
 
     return (<>
-        <div className="container">
+        <div className="">
             <div className="card mt-5 p-5" style={height}>
                 <div className="col-12">
                     <div className="row text-center">
@@ -47,56 +69,71 @@ export default function Personal() {
                         <p>Fill all form field to go to next step</p>
                     </div>
                     <div className="d-flex justify-content-between mt-3">
-                        <div>
-                            <Image
-                                src="/svg/acc-light.svg"
-                                alt="Account"
-                                width={0}
-                                height={0}
-                                layout="responsive"
-                                quality={100}
-                                sizes="100vh"
-                            ></Image>
-                            <p>Account</p>
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <div className="p-3 rounded-circle" style={logoBg}>
+                                <div className="d-flex justify-content-center align-items-center" style={logo}>
+                                    <Image
+                                        src="/svg/acc-dark.svg"
+                                        alt="Account"
+                                        width={0}
+                                        height={0}
+                                        layout="responsive"
+                                        quality={100}
+                                        sizes="100vh"
+                                    ></Image>
+                                </div>
+                            </div>
+                            <p className="mt-2">Account</p>
                         </div>
-                        <div>
-                            <Image
-                                src="/svg/per-dark.svg"
-                                alt="Account"
-                                width={0}
-                                height={0}
-                                layout="responsive"
-                                quality={100}
-                                sizes="100vh"
-                            ></Image>
-                            <p className="mb-2">Personal</p>
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <div className="p-3 rounded-circle" style={activeLogo}>
+                                <div className="d-flex justify-content-center align-items-center" style={aclg}>
+                                    <Image
+                                        src="/svg/user-light.svg"
+                                        alt="Personal"
+                                        width={0}
+                                        height={0}
+                                        layout="responsive"
+                                        quality={100}
+                                        sizes="100vh"
+                                    ></Image>
+                                </div>
+                            </div>
+                            <p className="mt-2 mb-1">Personal</p>
                             <div style={customStyle}></div>
                         </div>
-                        <div>
-                            <Image
-                                src="/svg/pay-light.svg"
-                                alt="Account"
-                                width={0}
-                                height={0}
-                                layout="responsive"
-                                quality={100}
-                                sizes="100vh"
-                            ></Image>
-                            <p>Payment</p>
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <div className="p-3 rounded-circle" style={logoBg}>
+                                <div className="d-flex justify-content-center align-items-center" style={logo}>
+                                    <Image
+                                        src="/svg/pay-dark.svg"
+                                        alt="payment"
+                                        width={0}
+                                        height={0}
+                                        layout="responsive"
+                                        quality={100}
+                                        sizes="100vh"
+                                    ></Image>
+                                </div>
+                            </div>
+                            <p className="mt-2">Payment</p>
                         </div>
-                        <div>
-                            <Image
-                                src="/svg/finish-light.svg"
-                                alt="Account"
-                                width={0}
-                                height={0}
-                                layout="responsive"
-                                quality={100}
-                                sizes="100vh"
-                            ></Image>
-                            <p>Finish</p>
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <div className="p-3 rounded-circle" style={logoBg}>
+                                <div className="d-flex justify-content-center align-items-center" style={logo}>
+                                    <Image
+                                        src="/svg/finish-dark.svg"
+                                        alt="finish"
+                                        width={0}
+                                        height={0}
+                                        layout="responsive"
+                                        quality={100}
+                                        sizes="100vh"
+                                    ></Image>
+                                </div>
+                            </div>
+                            <p className="mt-2">Finish</p>
                         </div>
-
                     </div>
                     <div className="mt-3">
                         <h2>Personal Information</h2>

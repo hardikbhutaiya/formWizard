@@ -14,12 +14,33 @@ export default function Payment() {
 
     let customStyle = {
         backgroundColor: "blue",
-        color: "white",
         height: "2px",
         width: "65%",
         borderRadius: "1px",
         margin: "auto",
     };
+
+    let logo = {
+        width: "15px",
+        height: "20px"
+    }
+
+    let logoBg = {
+        width: "50px",
+        height: "50px",
+        backgroundColor: "#EDF5FF",
+    }
+
+    let aclg = {
+        width: "15px",
+        height: "20px"
+    }
+
+    let activeLogo = {
+        width: "50px",
+        height: "50px",
+        backgroundColor: "#2F73F2",
+    }
 
     let height = {
         width: "100%",
@@ -41,7 +62,7 @@ export default function Payment() {
     };
 
     return (<>
-        <div className="container">
+        <div className="">
             <div className="card mt-5 p-5" style={height}>
                 <div className="col-12">
                     <div className="row text-center">
@@ -49,54 +70,70 @@ export default function Payment() {
                         <p>Fill all form field to go to next step</p>
                     </div>
                     <div className="d-flex justify-content-between mt-3">
-                        <div>
-                            <Image
-                                src="/svg/acc-light.svg"
-                                alt="Account"
-                                width={0}
-                                height={0}
-                                layout="responsive"
-                                quality={100}
-                                sizes="100vh"
-                            ></Image>
-                            <p>Account</p>
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <div className="p-3 rounded-circle" style={logoBg}>
+                                <div className="d-flex justify-content-center align-items-center" style={logo}>
+                                    <Image
+                                        src="/svg/acc-dark.svg"
+                                        alt="Account"
+                                        width={0}
+                                        height={0}
+                                        layout="responsive"
+                                        quality={100}
+                                        sizes="100vh"
+                                    ></Image>
+                                </div>
+                            </div>
+                            <p className="mt-2">Account</p>
                         </div>
-                        <div>
-                            <Image
-                                src="/svg/per-light.svg"
-                                alt="Account"
-                                width={0}
-                                height={0}
-                                layout="responsive"
-                                quality={100}
-                                sizes="100vh"
-                            ></Image>
-                            <p>Personal</p>
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <div className="p-3 rounded-circle" style={logoBg}>
+                                <div className="d-flex justify-content-center align-items-center" style={logo}>
+                                    <Image
+                                        src="/svg/user-dark.svg"
+                                        alt="Personal"
+                                        width={0}
+                                        height={0}
+                                        layout="responsive"
+                                        quality={100}
+                                        sizes="100vh"
+                                    ></Image>
+                                </div>
+                            </div>
+                            <p className="mt-2">Personal</p>
                         </div>
-                        <div>
-                            <Image
-                                src="/svg/pay-dark.svg"
-                                alt="Account"
-                                width={0}
-                                height={0}
-                                layout="responsive"
-                                quality={100}
-                                sizes="100vh"
-                            ></Image>
-                            <p className="mb-2">Payment</p>
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <div className="p-3 rounded-circle justify-content-center" style={activeLogo}>
+                                <div className="d-flex justify-content-center align-items-center" style={aclg}>
+                                    <Image
+                                        src="/svg/pay-light.svg"
+                                        alt="payment"
+                                        width={0}
+                                        height={0}
+                                        layout="responsive"
+                                        quality={100}
+                                        sizes="100vh"
+                                    ></Image>
+                                </div>
+                            </div>
+                            <p className="mt-2 mb-1">Payment</p>
                             <div style={customStyle}></div>
                         </div>
-                        <div>
-                            <Image
-                                src="/svg/finish-light.svg"
-                                alt="Account"
-                                width={0}
-                                height={0}
-                                layout="responsive"
-                                quality={100}
-                                sizes="100vh"
-                            ></Image>
-                            <p>Finish</p>
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <div className="p-3 rounded-circle" style={logoBg}>
+                                <div className="d-flex justify-content-center align-items-center" style={logo}>
+                                    <Image
+                                        src="/svg/finish-dark.svg"
+                                        alt="finish"
+                                        width={0}
+                                        height={0}
+                                        layout="responsive"
+                                        quality={100}
+                                        sizes="100vh"
+                                    ></Image>
+                                </div>
+                            </div>
+                            <p className="mt-2">Finish</p>
                         </div>
                     </div>
                     <div className="mt-3">
@@ -109,7 +146,7 @@ export default function Payment() {
                                         <div className="card-body">
                                             <Image
                                                 src="/img/mastercard.png"
-                                                alt="Account"
+                                                alt="card"
                                                 width={0}
                                                 height={0}
                                                 layout="responsive"
@@ -124,7 +161,7 @@ export default function Payment() {
                                         <div className="card-body">
                                             <Image
                                                 src="/img/visa.png"
-                                                alt="Account"
+                                                alt="card"
                                                 width={0}
                                                 height={0}
                                                 layout="responsive"
@@ -139,7 +176,7 @@ export default function Payment() {
                                         <div className="card-body">
                                             <Image
                                                 src="/img/rupay.png"
-                                                alt="Account"
+                                                alt="card"
                                                 width={0}
                                                 height={0}
                                                 layout="responsive"

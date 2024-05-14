@@ -18,17 +18,28 @@ export default function SignForm() {
   //   setThisStep("payment")
   // }
 
+  let bodyColor = {
+    background: "linear-gradient(135deg, #FFF5C3 0%, #9452A5 100%)",
+    width: "100%",
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }
+
   return (
     <>
-    <Account />
-    <Personal />
-    <Payment />
-    <Finish />
-      {/* <div>  
-        {currentStep === "account" && <Account onNextStep={goToNextStep} />}
+      <div className='' style={bodyColor}>
+        <Account />
+        {/* <Personal />
+        <Payment />
+        <Finish /> */}
+      </div>
+      <div>  
+        {/* {currentStep === "account" && <Account onNextStep={goToNextStep} />}
         {currentStep === "personal" && <Personal onNextStep={goToNextStep} />}
-        {thisstep === "payment" && <Payment NextStep={clickNextStep} />}
-      </div> */}
+        {thisstep === "payment" && <Payment NextStep={clickNextStep} />} */}
+      </div>
     </>
   );
 }
