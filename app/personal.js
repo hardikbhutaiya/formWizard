@@ -2,48 +2,15 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function Personal({onNextStep, onPreviousStep}) {
+export default function Personal({ onNextStep, onPreviousStep }) {
 
+    const [submittedData, setSubmittedData] = useState(null)
     const [formData, setFormData] = useState({
         fullname: "",
         email: "",
         contactnumber: "",
         selectgender: ""
     });
-
-    const customStyle = {
-        height: "3px",
-        width: "65%",
-        margin: "auto",
-    };
-
-    const logo = {
-        width: "15px",
-        height: "20px"
-    };
-
-    const logoBg = {
-        width: "50px",
-        height: "50px",
-        backgroundColor: "#EDF5FF",
-    };
-
-    const aclg = {
-        width: "15px",
-        height: "20px"
-    };
-
-    const activeLogo = {
-        width: "50px",
-        height: "50px",
-        backgroundColor: "#2F73F2",
-    };
-
-    const height = {
-        width: "100%",
-        margin: "auto",
-        maxWidth: "1080px"
-    };
 
     const handleChange = (e) => {
         let { name, value } = e.target
@@ -62,22 +29,22 @@ export default function Personal({onNextStep, onPreviousStep}) {
         onPreviousStep();
     };
 
-    const p = {
-        color: "#547593"
+    const handlePrint = () => {
+        setSubmittedData(formData);
     };
 
     return (<>
-        <div className="" style={height}>
-            <div className="card mt-5 p-5 rounded-4">
+        <div className="container">
+            <div className="card mt-5 p-5 rounded-5">
                 <div className="col-12">
                     <div className="row text-center">
                         <h2>Sign Up Your User Account</h2>
-                        <p style={p}>Fill all form field to go to next step</p>
+                        <p className="prgp">Fill all form field to go to next step</p>
                     </div>
                     <div className="d-flex justify-content-between mt-3">
                         <div className="d-flex flex-column justify-content-center align-items-center">
-                            <div className="p-3 rounded-circle" style={logoBg}>
-                                <div className="d-flex justify-content-center align-items-center" style={logo}>
+                            <div className="p-3 rounded-circle logoBg">
+                                <div className="d-flex justify-content-center align-items-center aclg">
                                     <Image
                                         src="/svg/acc-dark.svg"
                                         alt="Account"
@@ -92,8 +59,8 @@ export default function Personal({onNextStep, onPreviousStep}) {
                             <p className="mt-2">Account</p>
                         </div>
                         <div className="d-flex flex-column justify-content-center align-items-center">
-                            <div className="p-3 rounded-circle" style={activeLogo}>
-                                <div className="d-flex justify-content-center align-items-center" style={aclg}>
+                            <div className="p-3 rounded-circle activeLogo">
+                                <div className="d-flex justify-content-center align-items-center aclg">
                                     <Image
                                         src="/svg/user-light.svg"
                                         alt="Personal"
@@ -106,11 +73,11 @@ export default function Personal({onNextStep, onPreviousStep}) {
                                 </div>
                             </div>
                             <p className="mt-2 mb-1">Personal</p>
-                            <div className="bg-primary" style={customStyle}></div>
+                            <div className="customStyle"></div>
                         </div>
                         <div className="d-flex flex-column justify-content-center align-items-center">
-                            <div className="p-3 rounded-circle" style={logoBg}>
-                                <div className="d-flex justify-content-center align-items-center" style={logo}>
+                            <div className="p-3 rounded-circle logoBg">
+                                <div className="d-flex justify-content-center align-items-center aclg">
                                     <Image
                                         src="/svg/pay-dark.svg"
                                         alt="payment"
@@ -125,8 +92,8 @@ export default function Personal({onNextStep, onPreviousStep}) {
                             <p className="mt-2">Payment</p>
                         </div>
                         <div className="d-flex flex-column justify-content-center align-items-center">
-                            <div className="p-3 rounded-circle" style={logoBg}>
-                                <div className="d-flex justify-content-center align-items-center" style={logo}>
+                            <div className="p-3 rounded-circle logoBg">
+                                <div className="d-flex justify-content-center align-items-center aclg">
                                     <Image
                                         src="/svg/finish-dark.svg"
                                         alt="finish"
@@ -174,11 +141,23 @@ export default function Personal({onNextStep, onPreviousStep}) {
                             </form>
                             <div className="d-flex justify-content-between mt-4">
                                 <button className="btn btn-light" onClick={handlePrevious}>Previous Step</button>
+                                <button className="btn btn-success" onClick={handlePrint}>submit</button>
                                 <button className="btn btn-primary" onClick={handleSubmit}>Next Step</button>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div>
+                {submittedData && (
+                    <div className="mt-3">
+                        <h2>Submitted Data</h2>
+                        <p>Full Name: {submittedData.fullname}</p>
+                        <p>E-Mail: {submittedData.email}</p>
+                        <p>Contact Number: {submittedData.contactnumber}</p>
+                        <p>Select Gender: {submittedData.selectgender}</p>
+                    </div>
+                )}
             </div>
         </div>
     </>)

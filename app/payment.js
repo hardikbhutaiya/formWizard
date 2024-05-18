@@ -3,48 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Payment({onNextStep, onPreviousStep}) {
+export default function Payment({ onNextStep, onPreviousStep }) {
 
+    const getdate = new Date();
+    const [submittedData, setSubmittedData] = useState(null)
     const [formData, setFormData] = useState({
         nameofcard: "",
         cardnumber: "",
-        expirationdate: "",
+        expirationdate: getdate.toLocaleString(),
         cvv: ""
     });
-
-    const customStyle = {
-        height: "3px",
-        width: "65%",
-        margin: "auto",
-    };
-
-    const logo = {
-        width: "15px",
-        height: "20px"
-    };
-
-    const logoBg = {
-        width: "50px",
-        height: "50px",
-        backgroundColor: "#EDF5FF",
-    };
-
-    const aclg = {
-        width: "15px",
-        height: "20px"
-    };
-
-    const activeLogo = {
-        width: "50px",
-        height: "50px",
-        backgroundColor: "#2F73F2",
-    };
-
-    const height = {
-        width: "100%",
-        margin: "auto",
-        maxWidth: "1080px"
-    };
 
     const handleChange = (e) => {
         let { name, value } = e.target
@@ -57,28 +25,29 @@ export default function Payment({onNextStep, onPreviousStep}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         onNextStep();
+        console.log(formData);
     };
 
     const handlePrevious = () => {
         onPreviousStep();
     };
 
-    const p = {
-        color: "#547593"
+    const handlePrint = () => {
+        setSubmittedData(formData);
     };
 
     return (<>
-        <div className="" style={height}>
-            <div className="card mt-5 p-5 rounded-4">
+        <div className="container">
+            <div className="card mt-5 p-5 rounded-5">
                 <div className="col-12">
                     <div className="row text-center">
                         <h2>Sign Up Your User Account</h2>
-                        <p style={p}>Fill all form field to go to next step</p>
+                        <p className="prgp">Fill all form field to go to next step</p>
                     </div>
                     <div className="d-flex justify-content-between mt-3">
                         <div className="d-flex flex-column justify-content-center align-items-center">
-                            <div className="p-3 rounded-circle" style={logoBg}>
-                                <div className="d-flex justify-content-center align-items-center" style={logo}>
+                            <div className="p-3 rounded-circle logoBg">
+                                <div className="d-flex justify-content-center align-items-center aclg">
                                     <Image
                                         src="/svg/acc-dark.svg"
                                         alt="Account"
@@ -93,8 +62,8 @@ export default function Payment({onNextStep, onPreviousStep}) {
                             <p className="mt-2">Account</p>
                         </div>
                         <div className="d-flex flex-column justify-content-center align-items-center">
-                            <div className="p-3 rounded-circle" style={logoBg}>
-                                <div className="d-flex justify-content-center align-items-center" style={logo}>
+                            <div className="p-3 rounded-circle logoBg">
+                                <div className="d-flex justify-content-center align-items-center aclg">
                                     <Image
                                         src="/svg/user-dark.svg"
                                         alt="Personal"
@@ -109,8 +78,8 @@ export default function Payment({onNextStep, onPreviousStep}) {
                             <p className="mt-2">Personal</p>
                         </div>
                         <div className="d-flex flex-column justify-content-center align-items-center">
-                            <div className="p-3 rounded-circle justify-content-center" style={activeLogo}>
-                                <div className="d-flex justify-content-center align-items-center" style={aclg}>
+                            <div className="p-3 rounded-circle justify-content-center activeLogo">
+                                <div className="d-flex justify-content-center align-items-center aclg">
                                     <Image
                                         src="/svg/pay-light.svg"
                                         alt="payment"
@@ -123,11 +92,11 @@ export default function Payment({onNextStep, onPreviousStep}) {
                                 </div>
                             </div>
                             <p className="mt-2 mb-1">Payment</p>
-                            <div className="bg-primary" style={customStyle}></div>
+                            <div className="customStyle"></div>
                         </div>
                         <div className="d-flex flex-column justify-content-center align-items-center">
-                            <div className="p-3 rounded-circle" style={logoBg}>
-                                <div className="d-flex justify-content-center align-items-center" style={logo}>
+                            <div className="p-3 rounded-circle logoBg">
+                                <div className="d-flex justify-content-center align-items-center aclg">
                                     <Image
                                         src="/svg/finish-dark.svg"
                                         alt="finish"
@@ -195,7 +164,7 @@ export default function Payment({onNextStep, onPreviousStep}) {
                                 <div className="col-md-6 col-lg-3 mb-4">
                                     <div className="card shadow py-3">
                                         <div className="card-body p-4 text-center">
-                                            <Link className="text-dark no-underline" href={""}>See All</Link>
+                                            <Link className="text-dark" href={""}>See All</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -212,11 +181,11 @@ export default function Payment({onNextStep, onPreviousStep}) {
                                     <input className="w-100 px-3 py-2 border-bottom" type="cardnumber" name="cardnumber" value={formData.cardnumber} onChange={handleChange} placeholder="Card Number" />
                                 </div>
                                 <div className="d-flex py-2">
-                                    <div className="w-45">
-                                        <label>Expiration date</label>
-                                        <input className="w-100 px-3 py-2 border-bottom" type="month" name="year" value={formData.expirationdate} onChange={handleChange} placeholder="mm/yy" />
+                                    <div className="w-50">
+                                        <label>Expirations date </label>
+                                        <input className="w-100 px-3 py-2 border-bottom" type="date" name="number" onChange={handleChange} placeholder="mm/yy" />
                                     </div>
-                                    <div className="w-45 px-5 PY-2">
+                                    <div className="w-50 px-5 PY-2">
                                         <label>CVV</label>
                                         <input className="w-100 px-3 py-2 border-bottom" type="cvv" name="cvv" value={formData.cvv} onChange={handleChange} placeholder="cvv" />
                                     </div>
@@ -224,12 +193,24 @@ export default function Payment({onNextStep, onPreviousStep}) {
                             </form>
                             <div className="d-flex justify-content-between mt-4">
                                 <button className="btn btn-light" onClick={handlePrevious}>Previous Step</button>
+                                <button className="btn btn-success" onClick={handlePrint}>Submit</button>
                                 <button className="btn btn-primary" onClick={handleSubmit}>Next Step</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div>
+                {submittedData && (
+                    <div className="mt-3">
+                        <h2>Submitted Data</h2>
+                        <p>Name of Card: {submittedData.nameofcard}</p>
+                        <p>Card Number: {submittedData.cardnumber}</p>
+                        <p>Expirations Date: {submittedData.expirationdate}</p>
+                        <p>CVV: {submittedData.cvv}</p>
+                    </div>
+                )}
+            </div>
         </div>
-    </>)
-}
+    </>);
+};
